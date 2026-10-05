@@ -1,0 +1,30 @@
+cd C:\Users\curso\pgsql\pgsql\bin
+New-Item -ItemType Directory -Force -Path C:\Users\curso\pgsql\data
+.\initdb -D C:\Users\curso\pgsql\data
+.\pg_ctl -D C:\Users\curso\pgsql\data -o "-p 5433" start
+
+
+cd C:\Users\curso\pgsql\pgsql\bin
+.\psql -h localhost -p 5433 -d postgres
+
+CREATE DATABASE faculdade_db;
+
+\c faculdade_db
+
+
+CREATE TABLE cursos (
+    id SERIAL PRIMARY KEY,
+    nome_curso VARCHAR(100) NOT NULL,
+    carga_horaria INT NOT NULL,
+    ativo BOOLEAN DEFAULT TRUE
+);
+
+
+
+INSERT INTO cursos (nome_curso, carga_horaria) 
+VALUES ('Ciência da Computação', 3600),
+       ('Engenharia de Software', 3200);
+	   
+	   
+	   
+	   SELECT * FROM cursos;
