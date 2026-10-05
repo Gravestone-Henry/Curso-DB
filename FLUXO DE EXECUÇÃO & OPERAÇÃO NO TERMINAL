@@ -1,0 +1,18 @@
+# FLUXO DE EXECUÇÃO & OPERAÇÃO NO TERMINAL
+O banco de dados foi estruturado e operado diretamente pelo terminal, simulando um ambiente de produção minimalista:
+
+Inicialização do Cluster de Dados:
+
+PowerShell (ou terminal)
+initdb -D "caminho/para/diretorio/data"
+Controle do Servidor (Daemon):
+
+PowerShell (ou terminal)
+pg_ctl -D "caminho/para/diretorio/data" -l logfile start
+Conexão e Execução de Consultas via CLI:
+
+PowerShell (ou terminal)
+psql -U postgres -d nome_do_banco
+
+
+“Tabelas são dropadas, instâncias caem no esquecimento, mas o log permanece eterno.”
